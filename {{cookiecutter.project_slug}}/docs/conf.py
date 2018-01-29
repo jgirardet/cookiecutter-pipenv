@@ -26,7 +26,7 @@ sys.path.insert(0, os.path.abspath('../{{ cookiecutter.project_slug }}'))
 {% if cookiecutter.use_django == 'y' -%}
 # ----Django settings
 os.environ[
-    'DJANGO_SETTINGS_MODULE'] = '{{ cookiecutter.project_slug }}.config.settings'
+    'DJANGO_SETTINGS_MODULE'] = 'config.prod_settings'
 import django
 django.setup()
 {%- endif %}

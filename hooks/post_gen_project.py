@@ -19,6 +19,11 @@ if __name__ == '__main__':
     if '{{ cookiecutter.use_pypi_deployment_with_travis }}' != 'y':
         remove_file('travis_pypi_setup.py')
 
+    if '{{ cookiecutter.use_django }}' != 'y':
+        configdir = project_dir / 'config/'
+        import shutil
+        shutil.rmtree(configdir)
+
     print("Creating git repository (needed for PBR to fully work)")
     subprocess.check_call(["git", "init", "."])
 
