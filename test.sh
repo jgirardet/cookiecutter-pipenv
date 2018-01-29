@@ -50,5 +50,3 @@ y
 n
 
 EOF
-
-echo "Test went successful (in $PWD)"
