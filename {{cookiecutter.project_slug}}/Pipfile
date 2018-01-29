@@ -13,6 +13,7 @@ cryptography = ">=1.4"
 PyYAML = ">=3.11"
 {% endif %}
 pytest = ">=3.3"
+pytest-cov = "*"
 tox = "*"
 pipenv-to-requirements = ">=0.1.9"
 "flake8-coding" = "*"
@@ -25,6 +26,8 @@ asynctest = "*"
 {% endif %}
 {% if cookiecutter.use_django == 'y' %}
 pytest-django = "*"
+django-reset-migrations = "*"
+django-extensions = "*"
 {% endif %}
 
 [packages]

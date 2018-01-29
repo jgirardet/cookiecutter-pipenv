@@ -38,10 +38,10 @@ shell:
 	pipenv shell
 
 test-unit:
-	pipenv run pytest $(MODULE)
+	pipenv run pytest 
 
 test-coverage:
-	pipenv run py.test -v --cov $(MODULE) --cov-report term-missing
+	pipenv run py.test  --cov $(MODULE) --cov-report term-missing --cov-report html
 
 requirements:
 	# needed until PBR supports `Pipfile`
