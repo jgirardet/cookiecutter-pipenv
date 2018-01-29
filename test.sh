@@ -24,7 +24,7 @@ set +e
 
 echo "Setting up environment for testing..."\
 # note: do NOT use --dev here, we want to use the "prod" cookiecutter
-pipenv install
+pipenv install --three
 
 echo "Creating testdir"
 cd $(dirname $0)

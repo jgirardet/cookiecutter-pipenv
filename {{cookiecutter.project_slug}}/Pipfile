@@ -8,10 +8,10 @@ pycodestyle = ">=2.0"
 pyflakes = ">=1.6.0"
 pylint = ">=1.7"
 yapf = ">=0.18"
-{% if cookiecutter.use_pypi_deployment_with_travis == 'y' -%}
+{% if cookiecutter.use_pypi_deployment_with_travis == 'y' %}
 cryptography = ">=1.4"
 PyYAML = ">=3.11"
-{%- endif %}
+{% endif %}
 pytest = ">=3.3"
 tox = "*"
 pipenv-to-requirements = ">=0.1.9"
@@ -19,17 +19,17 @@ pipenv-to-requirements = ">=0.1.9"
 "flake8-comprehensions" = "*"
 sphinx = "*"
 sphinx-autobuild = "*"
-{% if cookiecutter.use_asyncio == 'y' -%}
+{% if cookiecutter.use_asyncio == 'y' %}
 pytest-asyncio = "*"
 asynctest = "*"
-{%- endif %}
-{% if cookiecutter.use_django == 'y' -%}
-pytest_django
-{%- endif %}
+{% endif %}
+{% if cookiecutter.use_django == 'y' %}
+pytest_django = "*"
+{% endif %}
 
 [packages]
 pbr = ">=3.0"
-{% if cookiecutter.use_django == 'y' -%}
-django
-{%- endif %}
+{% if cookiecutter.use_django == 'y' %}
+django = "*"
+{% endif %}
 
