@@ -17,12 +17,13 @@ tox = "*"
 pipenv-to-requirements = ">=0.1.9"
 "flake8-coding" = "*"
 "flake8-comprehensions" = "*"
+sphinx = "*"
+sphinx-autobuild = "*"
 {% if cookiecutter.use_asyncio == 'y' -%}
 pytest-asyncio = "*"
 asynctest = "*"
 {%- endif %}
-sphinx
-sphinx-autobuild
+
 
 [packages]
 pbr = ">=3.0"
