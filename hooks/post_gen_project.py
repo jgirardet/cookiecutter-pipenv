@@ -28,10 +28,9 @@ if __name__ == '__main__':
 
     if '{{ cookiecutter.create_developer_env_after_scapfolding }}' == 'y':
         print("Setting up a virtual environment")
-        pyversion = "--three"
-        if '{{ cookiecutter.python_version }}' == '2':
-            pyversion = "--two"
-        subprocess.check_call(["pipenv", pyversion])
+        subprocess.check_call(
+            ["pipenv", "--python",
+             str({{cookiecutter.python_version}})])
         subprocess.check_call(["pipenv", "install", "--dev"])
 
         print("Initial build...")
