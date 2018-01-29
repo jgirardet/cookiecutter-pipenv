@@ -67,7 +67,7 @@ push: githook
 	git push origin --all
 	git push origin --tags
 
-docs:
+doc:
 	pipenv run python setup.py build_sphinx
 
 clean: clean-build clean-pyc clean-test ## remove all build, test, coverage and Python artifacts
