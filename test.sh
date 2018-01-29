@@ -36,7 +36,7 @@ echo "pwd: $PWD"
 PYVER=$(python -c "import sys;print(sys.version[:3])") #for different env testing
 pipenv run cookiecutter . -o testdir << EOF
 $PYVER
-Author Name
+Authdzefzefor Name
 author.name@server.com
 test_project_name
 Short Project Description
