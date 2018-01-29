@@ -33,8 +33,9 @@ mkdir -p testdir
 
 echo "Testing cookiecutter receipe..."
 echo "pwd: $PWD"
+PYVER=$(python -c "import sys;print(sys.version[:3])") #for different env testing
 pipenv run cookiecutter . -o testdir << EOF
-3
+$PYVER
 Author Name
 author.name@server.com
 test_project_name
@@ -46,6 +47,7 @@ github_repository_name
 y
 y
 y
+n
 
 EOF
 
