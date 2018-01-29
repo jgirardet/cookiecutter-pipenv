@@ -24,13 +24,10 @@ autopep8:
 yapf:
 	pipenv run yapf --style .yapf --recursive -i $(MODULE)
 
-checks: sdist flake8 pylint
+checks: sdist flake8 
 
 flake8:
 	pipenv run python setup.py flake8
-
-pylint:
-	pipenv run pylint --rcfile=.pylintrc --output-format=colorized $(MODULE)
 
 build: dists
 

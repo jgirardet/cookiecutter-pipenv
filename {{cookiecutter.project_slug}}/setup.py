@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import setuptools
 
 # In python < 2.7.4, a lazy loading of package `pbr` will break
@@ -8,5 +9,4 @@ try:
 except ImportError:
     pass
 
-setuptools.setup(setup_requires=['pbr'],
-                 pbr=True)
+setuptools.setup(setup_requires=['pbr'], pbr=True)
