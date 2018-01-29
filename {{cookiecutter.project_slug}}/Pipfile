@@ -23,7 +23,13 @@ sphinx-autobuild = "*"
 pytest-asyncio = "*"
 asynctest = "*"
 {%- endif %}
-
+{% if cookiecutter.use_django == 'y' -%}
+pytest_django
+{%- endif %}
 
 [packages]
 pbr = ">=3.0"
+{% if cookiecutter.use_django == 'y' -%}
+django
+{%- endif %}
+
