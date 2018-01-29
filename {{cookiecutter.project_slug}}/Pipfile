@@ -24,7 +24,7 @@ pytest-asyncio = "*"
 asynctest = "*"
 {% endif %}
 {% if cookiecutter.use_django == 'y' %}
-pytest_django = "*"
+pytest-django = "*"
 {% endif %}
 
 [packages]

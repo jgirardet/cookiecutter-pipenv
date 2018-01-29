@@ -122,3 +122,16 @@ Configuration
 
 You will need to configure `.travis.yml` to enable automatic PyPi deployment, or use the provided
 `travis_pypi_setup.py` script.
+
+ChangeLog after Fork
+----------------------
+- tests out of package directory
+- config folder
+- REMOVED .env from .gitignore
+- added package path to python path in .env (for tests, doc and package)
+- travis start at python 3.5
+- subversion of python at install (3.5, 3.6 etc)
+- Sphinx
+- Makefile added doc command
+- Pipfile : django conditionnal 
+- setup.cfg : doc directory
