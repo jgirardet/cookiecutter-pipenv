@@ -9,6 +9,6 @@ INSTALLED_APPS = [
     'pseudo',
 ]
 
-SECRET_KEY = mzeokfmzoekfmozekf
+SECRET_KEY = 'mzeokfmzoekfmozekf'
 # added for manage.py only
 DEBUG = True
