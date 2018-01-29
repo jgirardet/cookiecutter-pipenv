@@ -21,6 +21,8 @@ pipenv-to-requirements = ">=0.1.9"
 pytest-asyncio = "*"
 asynctest = "*"
 {%- endif %}
+sphinx
+sphinx-autobuild
 
 [packages]
 pbr = ">=3.0"
