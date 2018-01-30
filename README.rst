@@ -127,8 +127,6 @@ ChangeLog after Fork
 ----------------------
 - tests out of package directory
 - config folder for django only
-- REMOVED .env from .gitignore
-- added package path to python path in .env (for tests, doc and package)
 - travis start at python 3.5
 - subversion of python at install (3.5, 3.6 etc)
 - Sphinx

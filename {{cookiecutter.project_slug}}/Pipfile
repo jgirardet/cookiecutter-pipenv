@@ -12,6 +12,7 @@ PyYAML = ">=3.11"
 {% endif %}
 pytest = ">=3.3"
 pytest-cov = "*"
+pytest-pythonpath
 tox = "*"
 pipenv-to-requirements = ">=0.1.9"
 "flake8-coding" = "*"
