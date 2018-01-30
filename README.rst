@@ -134,3 +134,6 @@ ChangeLog after Fork
 - Pipfile : django conditionnal 
 - setup.cfg : doc directory
 - remove pylint
+- pytest-pythonpath + pytest.ini
+- make doc-auto : sphinx-autobuild
+- 
