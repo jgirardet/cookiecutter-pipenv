@@ -22,7 +22,9 @@ if __name__ == '__main__':
     if '{{ cookiecutter.use_django }}' != 'y':
         configdir = project_dir / 'config/'
         import shutil
-        shutil.rmtree(configdir)
+        shutil.rmtree(
+            str(configdir
+                ))  # must be converted to string for compat whith  python3.5
 
     print("Creating git repository (needed for PBR to fully work)")
     subprocess.check_call(["git", "init", "."])
