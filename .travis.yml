@@ -8,6 +8,6 @@ install:
   - pip install pipenv>=9.0 cookiecutter
 
 script:
-  - yes | python test-script.py
+  - echo "n" | python test-script.py
   - cd my_project_name
   - make all 
