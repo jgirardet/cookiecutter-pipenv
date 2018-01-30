@@ -12,8 +12,6 @@ Cookie cutter recipe for bootstrapping an OpenSource Python **library** using st
 free services and the best "opensource" mindset.
 
 
-test
-
 Library vs Application
 ----------------------
 
