@@ -1,5 +1,6 @@
 .. image:: https://travis-ci.org/jgirardet/python-library-cookiecutter.svg?branch=master
     :target: https://travis-ci.org/jgirardet/python-library-cookiecutter
+    
 
 
 
