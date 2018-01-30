@@ -3,6 +3,10 @@
 
 
 
+Cookie Cutter template very inspirated from https://github.com/gsemet/python-library-cookiecutter
+
+
+
 Afer Fork : 
 ============
 
