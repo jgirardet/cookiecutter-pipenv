@@ -9,6 +9,5 @@ install:
 
 script:
   - yes | python test-script.py
-  - pipenv --rm
   - cd my_project_name
   - make all 
