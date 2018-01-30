@@ -5,7 +5,7 @@ just launch a cookie cookiecutter
 """
 
 cookiecutter(
-    'https://github.com/jgirardet/python-library-cookiecutter',
+    'https://github.com/jgirardet/cookiecutter-pipenv',
     no_input=True,
     #install specifique version en travis and pipenv bug under travis, make all does the job next
     extra_context={
