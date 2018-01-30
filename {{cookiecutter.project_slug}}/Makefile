@@ -2,7 +2,7 @@
 
 MODULE:={{ cookiecutter.project_slug }}
 
-all: dev style checks requirements build dists test-unit
+all: dev style checks requirements build dists doc test-unit test-coverage
 
 dev:
 	pipenv install --dev --skip-lock
