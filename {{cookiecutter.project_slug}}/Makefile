@@ -70,6 +70,9 @@ push: githook
 doc:
 	pipenv run python setup.py build_sphinx
 
+doc-auto:
+	pipenv run sphinx-autobuild docs docs/_build
+	
 clean: clean-build clean-pyc clean-test ## remove all build, test, coverage and Python artifacts
 
 
