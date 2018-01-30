@@ -9,11 +9,15 @@ python:
 
 install:
   - pip install -U pip pipenv
+  - pip install python-coveralls
   - make dev
 
 script:
   - make check
+  - make dist
+  - make doc
   - make test-unit
+  - make test-coverage
 
 after_success:
   coveralls

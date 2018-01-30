@@ -30,6 +30,7 @@ nosetests.xml
 .testrepository
 .venv
 venv
+htmlcov/
 
 # Translations
 *.mo

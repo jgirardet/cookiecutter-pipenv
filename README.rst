@@ -147,3 +147,4 @@ ChangeLog after Fork
 - pytest-pythonpath + pytest.ini
 - make doc-auto : sphinx-autobuild
 - Pipfile.lock is not ignored anymore  by default
+- write oc : lounc pipi with pipenv 
