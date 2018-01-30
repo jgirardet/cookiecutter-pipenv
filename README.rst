@@ -11,6 +11,9 @@ Stibons 2017 OpenSource Python Library Cookiecutter
 Cookie cutter recipe for bootstrapping an OpenSource Python **library** using state of the art,
 free services and the best "opensource" mindset.
 
+
+test
+
 Library vs Application
 ----------------------
 
