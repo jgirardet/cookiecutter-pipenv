@@ -1,62 +1,33 @@
-.. image:: https://travis-ci.org/jgirardet/python-library-cookiecutter.svg?branch=master
-    :target: https://travis-ci.org/jgirardet/python-library-cookiecutter
+.. image:: https://travis-ci.org/jgirardet/cookiecutter-pipenv.svg?branch=master
+    :target: https://travis-ci.org/jgirardet/cookiecutter-pipenv
     
 
-
-
-Cookie Cutter template very inspirated from https://github.com/gsemet/python-library-cookiecutter
-
-
-
-Afer Fork : 
-============
-
-
-Stibons 2017 OpenSource Python Library Cookiecutter
+A pipenv friendly cookie-cutter template
 ===================================================
 
-.. image:: https://travis-ci.org/Stibbons/python-library-cookiecutter.svg?branch=master
-    :target: https://travis-ci.org/Stibbons/python-library-cookiecutter
+Pipenv should be the new standard but there isn't much template to deal with.
 
-Cookie cutter recipe for bootstrapping an OpenSource Python **library** using state of the art,
-free services and the best "opensource" mindset.
+This Cookie Cutter template is very inspirated from https://github.com/gsemet/python-library-cookiecutter.
+Thanks to gmsemet for his work.
 
+I created a new one because it was becoming to much different from the python-library-cookiecutter.
 
-Library vs Application
-----------------------
+It's realy for python >3.5. I don't know if previous is ok.
 
-It is important to differentiate a Python "Library" and a Python "Application". Each form have its
-own life and should handle dependencies differently:
-
-- To ensure stability and reproductibility of the deployment of an **application**, a good practice
-  is to **freeze the versions of all its dependencies**, so, no matter what happens for example on
-  https://pypi.python.org for example a new, buggy version of a package your application relies on
-  actually break your application. Without proper "frozen" dependencies management, you might get
-  this dependency library deployed on production without any validation.
-
-- for a **library**, dependencies versions should not be frozen and should be defined using version
-  ranges.
-  For example, let's imagine your library depends on a module A in version 1.0. Your library is
-  then used in an application that also depends on the same module A, but in version 1.2. The best
-  way to handle this is to let libraries describe the range of supported versions, and let the
-  package manager (Pip) find the best candidates.
-
-
-Python Library Receipe Features
+What's included ?
 ------------------------------
 
 See https://github.com/audreyr/cookiecutter for more information about Cookiecutter.
 
-Feature of the "Python Library" Cookiecutter recipe:
 
 - Use **Pipenv** to manage ``Pipfile``.
-- Dependencies are defined by range and ``Pipfile.lock`` is **not** tracked
+- Dependencies are defined by range and ``Pipfile.lock`` is tracked
 - ``requirements.txt`` and ``requirements-dev.txt`` are AUTOMATICALLY generated for services
   such as ReadTheDocs that does not support ``Pipfile`` yet.
 - Source code is horst on **Github**
-- Free software: **MIT license**
+- Free software: **GPL, MIT, ...**
 - **Badges** for Travis, Coverage, Pypi, ReadTheDoc
-- Python 2, 3 and Pypy, with default set to Python 3
+- You choose your vesion of python at install : **3.5, 3.6** 
 - **PBR**: handle automatic versioning based on Git Tag, automatic creation of `ChangeLog` and
   `AUTHORS` files
 - **Pypi**: automatic deployment of distribution package or wheels on successful Travis Tag build
@@ -65,78 +36,118 @@ Feature of the "Python Library" Cookiecutter recipe:
 - **Automatically deploy successful tagged version** to Pypi
 - **Automatically set Travis CI deployment token** with `travis_pypi_setup.py` script
 - **isort, Yapf, AutoPep8**: code formatting
-- **Pylint, Flake8**: code style
-- **Editorconfig**: autoconfiguration of almost any editor
+- **flake8**: code style
 - **Coverage**: unit test report
-- Use **Pytest** and **Tox** for Unit testing
+- Use **Pytest** for Unit testing
 - **Sphinx docs**: Documentation ready for generation and publication to **ReadTheDoc**
 
-Usage
------
+
+Get Started:
+--------------
 
 Do not create a folder for your project, it will be automatically created.
 
-Boostrap your Python library:
 
     .. code-block:: bash
 
         $ pip3 install --user --upgrade pip cookiecutter
 
-        $ cookiecutter https://github.com/Stibbons/python-library-cookiecutter
+        $ cookiecutter https://github.com/jgirardet/cookiecutter-pipenv
 
-        # or
+Step 2:
+---------
 
-        $ cookiecutter gh:Stibbons/python-library-cookiecutter
 
 Setup for development:
 
+Juste chose *create_developer_env_after_scapfolding*. You can Also type :
     .. code-block:: bash
 
         $ make dev
 
-Note
+Step 3:
+--------
+- commit your work!
+- create a github repo
+- enable your project on Travis
+- execute ``pipenv run python travis_pypi_setup.py`` if you want auto deployement of new version on Pypi
+- enable on read the docs if needed
+- enable your coverall account
+- push all with : ``make push``
 
-    Deploying a "library" in production has little to no meaning. If it is intended to be deployed
-    directly on the system, use your distribution package manager (`apt`, 'brew', 'yum', ...)
 
-    If it is meant to be deployed alongside with an application, it should be installed from the
-    Pypi repository (or a cache) and installed into the Virtualenv this application will use.
 
-Execute unit tests:
+Usage:
+-------
+Run tests
+  .. code-block:: bash
+  
+      make test 
+      make test-coverage
 
-    .. code-block:: bash
+  depending what you want.
 
-        $ make test
 
 Build package (source, binary and wheels):
-
-    Use it for most package without low level system dependencies.
+  Use it for most package without low level system dependencies.
 
     .. code-block:: bash
 
         make dists
 
-To register Pipy deployment:
-
-- commit your work!
-- enable your project on Travis
-- execute ``pipenv run python travis_pypi_setup.py``
 
 Create a release:
-
     .. code-block:: bash
 
-        make release
         git tag 1.2.3
         make push
 
-On successful travis build on the Tag branch, your Pypi package will be updated automatically.
+  On successful travis build on the Tag branch, your Pypi package and ReadTheDoc will be updated automatically.
 
-Configuration
--------------
 
-You will need to configure `.travis.yml` to enable automatic PyPi deployment, or use the provided
-`travis_pypi_setup.py` script.
+Make the Doc:
+  .. code-block:: bash
+
+        make doc
+
+  One time generation
+
+
+  .. code-block:: bash
+
+      make doc-auto
+
+  This launch a mini server and doc is rebuild for each change.
+
+
+Clean everything:
+  .. code-block:: bash
+  
+      make clean
+
+Django option:
+  this add:
+  
+  - repo config for settings, urls...
+  - adjust the doc. doc won't work if you say no to django  but then you install anyway
+  - add package : 
+
+    + pytest-django
+    + pytest-pythonpath: django wants config in path
+    + django-reset-migrations: allways usefull
+    + django-extensions : for shell_plus  server_plus 
+    + todo : manage.py, urls
+
+Asyncio:
+  Not tested, don't no if it's working
+
+
+
+Contributing
+----------------
+You're welcome
+
+
 
 ChangeLog after Fork
 ----------------------
