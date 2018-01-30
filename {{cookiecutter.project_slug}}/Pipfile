@@ -6,6 +6,7 @@ verify_ssl = true
 flake8 = ">=3.4"
 pycodestyle = ">=2.0"
 yapf = ">=0.18"
+isort = "*"
 {% if cookiecutter.use_pypi_deployment_with_travis == 'y' %}
 cryptography = ">=1.4"
 PyYAML = ">=3.11"
