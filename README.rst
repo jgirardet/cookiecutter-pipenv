@@ -136,4 +136,4 @@ ChangeLog after Fork
 - remove pylint
 - pytest-pythonpath + pytest.ini
 - make doc-auto : sphinx-autobuild
-- 
+- Pipfile.lock is not ignored anymore  by default

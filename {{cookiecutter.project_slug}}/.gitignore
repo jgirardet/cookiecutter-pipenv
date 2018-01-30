@@ -44,7 +44,7 @@ output/*.html
 output/*/index.html
 
 # Sphinx
-doc/build
+doc/_build
 
 # Editors
 *~
@@ -55,5 +55,3 @@ doc/build
 ChangeLog
 AUTHORS
 
-# Don't track lock file for libraries
-Pipfile.lock
