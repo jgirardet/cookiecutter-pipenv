@@ -1,5 +1,8 @@
 from cookiecutter.main import cookiecutter
 import sys
+"""
+just launch a cookie cookiecutter
+"""
 
 cookiecutter(
     'https://github.com/jgirardet/python-library-cookiecutter',
