@@ -25,6 +25,7 @@ pytest-asyncio = "*"
 asynctest = "*"
 {% endif %}
 {% if cookiecutter.use_django == 'y' %}
+pytest-pythonpath = "*"
 pytest-django = "*"
 django-reset-migrations = "*"
 django-extensions = "*"
