@@ -5,8 +5,9 @@ python:
     - "3.6"
 
 install:
-  - pip install pipenv>=4.0 virtualenv>=12.0.2
+  - pip install pipenv>=9.0 cookiecutter
 
 script:
-  - pipenv check
-  - ./test.sh
+  - python test-script.py
+  - cd my_project_name
+  - make all 
