@@ -44,13 +44,10 @@ requirements:
 	# needed until PBR supports `Pipfile`
 	pipenv run pipenv_to_requirements
 
-dists: requirements sdist bdist wheels
+dists: requirements sdist wheels
 
 sdist:
 	pipenv run python setup.py sdist
-
-bdist:
-	pipenv run python setup.py bdist
 
 wheels:
 	pipenv run python setup.py bdist_wheel

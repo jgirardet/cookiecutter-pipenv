@@ -8,7 +8,7 @@ A pipenv friendly cookie-cutter template
 Pipenv should be the new standard but there isn't much template to deal with.
 
 This Cookie Cutter template is very inspirated from https://github.com/gsemet/python-library-cookiecutter.
-Thanks to gmsemet for his work.
+Thanks to gsemet for his work.
 
 I created a new one because it was becoming to much different from the python-library-cookiecutter.
 
@@ -118,7 +118,7 @@ Make the Doc:
       make doc-auto
 
   This launch a mini server and doc is rebuild for each change.
-
+  readTheDoc neads requirements files so you need to a ``make requirements`` or ``make all`` to make it work. 
 
 Clean everything:
   .. code-block:: bash
