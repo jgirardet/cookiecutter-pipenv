@@ -2,3 +2,7 @@
 # see https://pyup.io/docs/configuration/ for all available options
 
 update: insecure
+
+requirements:
+  - Pipfile
+  - Pipfile.lock
