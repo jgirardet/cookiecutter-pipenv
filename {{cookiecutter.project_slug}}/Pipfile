@@ -3,19 +3,19 @@ url = "https://pypi.python.org/simple"
 verify_ssl = true
 
 [dev-packages]
-flake8 = ">=3.4"
-pycodestyle = ">=2.0"
-yapf = ">=0.18"
+flake8 = "*"
+pycodestyle = "*"
+yapf = "*"
 isort = "*"
 autopep8 = "*"
 {% if cookiecutter.use_pypi_deployment_with_travis == 'y' %}
-cryptography = ">=1.4"
-PyYAML = ">=3.11"
+cryptography = "*"
+PyYAML = "*"
 {% endif %}
-pytest = ">=3.3"
+pytest = "*"
 pytest-cov = "*"
 tox = "*"
-pipenv-to-requirements = ">=0.1.9"
+pipenv-to-requirements = "*"
 "flake8-coding" = "*"
 "flake8-comprehensions" = "*"
 sphinx = "*"

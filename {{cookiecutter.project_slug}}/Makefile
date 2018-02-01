@@ -41,8 +41,17 @@ test-coverage:
 	pipenv run py.test  --cov $(MODULE) --cov-report term-missing --cov-report html
 
 requirements:
+	# generate requirements.txt from Pipfile
 	# needed until PBR supports `Pipfile`
 	pipenv run pipenv_to_requirements
+
+requirements-lock:
+	# generate requirements.txt frm Pipfile.lock
+	# better than pipenv_to _requirements because of hash
+	pipenv run pipenv_to_requirements -f
+	
+
+dists-lock: requirements-lock sdist wheels
 
 dists: requirements sdist wheels
 
@@ -58,7 +67,12 @@ pypi-publish: build
 update:
 	pipenv update
 
+{% if cookiecutter.library_or_app == 'libray' %}
 githook: style requirements
+{% endif %}
+{% if cookiecutter.library_or_app == 'app' %}
+githook: style requirements-lock
+{% endif %}
 
 push: githook
 	git push origin --all

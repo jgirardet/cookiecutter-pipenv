@@ -1,5 +1,6 @@
 {
 	"python_version": "3",
+	"library_or_app": ["library", "app"],
 	"full_name": "Author Name",
 	"email": "author@server.com",
 	"project_name": "my_project_name",
