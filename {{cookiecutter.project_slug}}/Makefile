@@ -43,15 +43,17 @@ test-coverage:
 requirements:
 	# generate requirements.txt from Pipfile
 	# needed until PBR supports `Pipfile`
+	{% if cookiecutter.library_or_app == 'libray' %}
+	# generate requirements.txt from Pipfile
+	# needed until PBR supports `Pipfile`
 	pipenv run pipenv_to_requirements
-
-requirements-lock:
+	{% endif %}
+	{% if cookiecutter.library_or_app == 'app' %}
 	# generate requirements.txt frm Pipfile.lock
-	# better than pipenv_to _requirements because of hash
+	# needed until PBR supports `Pipfile`
 	pipenv run pipenv_to_requirements -f
-	
+	{% endif %}
 
-dists-lock: requirements-lock sdist wheels
 
 dists: requirements sdist wheels
 
@@ -67,13 +69,8 @@ pypi-publish: build
 update:
 	pipenv update
 
-{% if cookiecutter.library_or_app == 'libray' %}
 githook: style requirements
-{% endif %}
-{% if cookiecutter.library_or_app == 'app' %}
-githook: style requirements-lock
-{% endif %}
-
+	
 push: githook
 	git push origin --all
 	git push origin --tags

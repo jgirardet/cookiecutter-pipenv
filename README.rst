@@ -35,7 +35,7 @@ See https://github.com/audreyr/cookiecutter for more information about Cookiecut
 - **Travis-CI**: build, unit test
 - **Automatically deploy successful tagged version** to Pypi
 - **Automatically set Travis CI deployment token** with `travis_pypi_setup.py` script
-- **isort, Yapf, AutoPep8**: code formatting
+- *eisort, Yapf, AutoPep8**: code formatting
 - **flake8**: code style
 - **Coverage**: unit test report
 - Use **Pytest** for Unit testing
@@ -50,9 +50,19 @@ Do not create a folder for your project, it will be automatically created.
 
     .. code-block:: bash
 
-        $ pip3 install --user --upgrade pip cookiecutter
+        $ pip3 install --user --upgrade pipenv cookiecutter
 
         $ cookiecutter https://github.com/jgirardet/cookiecutter-pipenv
+
+At start it will ask you for libray or app.
+This is important depending the way you want dependencies work.
+Libray will use Pipfile as requirements.txt, so if put django="\*" the newest version wil be used.
+App will use Pipfile.lock as requirements.txt, it will put the exact version you are running (ex : django(1.11.3).
+This behaviour tries to do **soft** dependencies for libray but **strong** dependencies for applications.
+This will work only if  you use ``make push`` instead of ``git push`` because ``make push`` generates the requirements.txt
+
+
+
 
 Step 2:
 ---------
@@ -99,6 +109,7 @@ Build package (source, binary and wheels):
 Create a release:
     .. code-block:: bash
 
+        # commit your work
         git tag 1.2.3
         make push
 
@@ -164,3 +175,4 @@ ChangeLog after Fork
 - make doc-auto : sphinx-autobuild
 - Pipfile.lock is not ignored anymore  by default
 - write oc : lounc pipi with pipenv 
+- package is library or app

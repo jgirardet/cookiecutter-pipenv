@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 import setuptools
 
 # In python < 2.7.4, a lazy loading of package `pbr` will break
