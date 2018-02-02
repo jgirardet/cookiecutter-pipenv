@@ -10,4 +10,7 @@ install:
 script:
   - python test-script.py
   - cd my_project_name
+  - make githook
+  - git add .
+  - git commit -m 'initial'
   - make all 

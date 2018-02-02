@@ -40,6 +40,8 @@ See https://github.com/audreyr/cookiecutter for more information about Cookiecut
 - **Coverage**: unit test report
 - Use **Pytest** for Unit testing
 - **Sphinx docs**: Documentation ready for generation and publication to **ReadTheDoc**
+- controle package security with **pyup**.
+- 
 
 
 Get Started:
@@ -83,12 +85,15 @@ Step 3:
 - execute ``pipenv run python travis_pypi_setup.py`` if you want auto deployement of new version on Pypi
 - enable on read the docs if needed
 - enable your coverall account
+- enable you pyup account
 - push all with : ``make push``
 
 
 
 Usage:
 -------
+
+
 Run tests
   .. code-block:: bash
   
@@ -113,6 +118,7 @@ Create a release:
         git tag 1.2.3
         make push
 
+  If requirements.txt isn't up to date it will generate requirements.txt but not commit it. Git will tell you that. The thing to do is to commit the changes and execute ``make push`` again.
   On successful travis build on the Tag branch, your Pypi package and ReadTheDoc will be updated automatically.
 
 
@@ -151,6 +157,14 @@ Django option:
 
 Asyncio:
   Not tested, don't no if it's working
+
+What does make push do ?
+  - style with : Yapf, AutoPep8 and flake8
+  - check pep 508
+  - use safety from  https://github.com/pyupio/safety
+  - autogenerate requirements.txt and requirements-dev.txt
+  - git status : to show if some uncommited things
+  - push commits and tags
 
 
 

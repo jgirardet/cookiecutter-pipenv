@@ -24,7 +24,8 @@ autopep8:
 yapf:
 	pipenv run yapf --style .yapf --recursive -i $(MODULE)
 
-checks: sdist flake8 
+checks:
+	pipenv check
 
 flake8:
 	pipenv run python setup.py flake8
@@ -40,9 +41,7 @@ test-unit:
 test-coverage:
 	pipenv run py.test  --cov $(MODULE) --cov-report term-missing --cov-report html
 
-requirements:
-	# generate requirements.txt from Pipfile
-	# needed until PBR supports `Pipfile`
+requirements.txt:
 	{% if cookiecutter.library_or_app == 'libray' %}
 	# generate requirements.txt from Pipfile
 	# needed until PBR supports `Pipfile`
@@ -54,6 +53,8 @@ requirements:
 	pipenv run pipenv_to_requirements -f
 	{% endif %}
 
+Pipfile.lock:	Pipfile
+	pipenv lock
 
 dists: requirements sdist wheels
 
@@ -69,9 +70,10 @@ pypi-publish: build
 update:
 	pipenv update
 
-githook: style requirements
+githook: checks style requirements.txt
 	
 push: githook
+	git status
 	git push origin --all
 	git push origin --tags
 
