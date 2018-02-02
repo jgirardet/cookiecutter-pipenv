@@ -23,11 +23,11 @@ import sys
 sys.path.insert(0, os.path.abspath('..'))
 sys.path.insert(0, os.path.abspath('../{{ cookiecutter.project_slug }}'))
 
-{ % if cookiecutter.use_django == 'y' - %}
+{% if cookiecutter.use_django == 'y' %}
 # ----Django settings
 os.environ[
     'DJANGO_SETTINGS_MODULE'] = 'config.prod_settings'
-import django
+import django  # isort:skip
 django.setup()
 {%- endif %}
 

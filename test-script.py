@@ -1,7 +1,6 @@
 import sys
 
 from cookiecutter.main import cookiecutter
-
 """
 just launch a cookie cookiecutter
 """
