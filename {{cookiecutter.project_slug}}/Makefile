@@ -56,7 +56,7 @@ requirements.txt:
 Pipfile.lock:	Pipfile
 	pipenv lock
 
-dists: requirements sdist wheels
+dists: requirements.txt sdist wheels
 
 sdist:
 	pipenv run python setup.py sdist
