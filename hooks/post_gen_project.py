@@ -1,11 +1,9 @@
 #!/usr/bin/env python
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
+from __future__ import absolute_import, division, print_function
 
 import os
-import subprocess
 import pathlib
+import subprocess
 
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
 project_dir = pathlib.Path(PROJECT_DIRECTORY)
