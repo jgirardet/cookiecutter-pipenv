@@ -8,21 +8,15 @@ Tests for `{{ cookiecutter.project_slug }}` module.
 """
 
 # Third Party Libraries
+from apistar.test import TestClient
+from app import app
+
+# Third Party Libraries
 import pytest
 
 # {{cookiecutter.project_name}}
 from {{cookiecutter.project_slug}} import {{cookiecutter.project_slug}}
 from {{cookiecutter.project_slug}}.pseudo.models import Pseudo
-
-{% if cookiecutter.use_asyncio == 'y' %}
-# note: use `asynctest.TestCase` instead of `unittest.TestCase` for your tests running inside
-# the asyncio loop.
-# Tests that do not use asyncio should still inherit from `unittest.TestCase`.
-#
-# uncomment the following string to use asyncio in your tests
-# from asynctest import TestCase
-{%- endif %}
-
 
 def test_{{cookiecutter.project_slug}}():
     assert True
@@ -30,3 +24,29 @@ def test_{{cookiecutter.project_slug}}():
 
 def test_pseudo():
     assert Pseudo.name == "pseudo"
+
+
+
+{% if cookiecutter.use_apistar == 'y' %}
+
+def test_http_request():
+    """
+    Testing a view, using the test client with
+    """
+    client = TestClient(app)
+    response = client.get('http://localhost/pseudos/')
+    assert response.status_code == 200
+
+{% endif %}
+
+{% if cookiecutter.use_apistar_with_django == 'y' %}
+def test_http_request(ss):
+    """
+    Testing a view, using the test client with
+    but testing with fixture
+    """
+    client = TestClient(app)
+    e = ss.Pseudo.objects.all()
+    response = client.get('http://localhost/pseudos/')
+    assert response.status_code == 200
+{% endif %}

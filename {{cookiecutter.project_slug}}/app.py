@@ -1,19 +1,10 @@
 # Third Party Libraries
-from apistar import environment
-from apistar import typesystem
 from apistar.backends import django_orm
 from apistar.frameworks.wsgi import WSGIApp as App
 # from config import base_settings
 from config.urls import routes
 
-
-class Env(environment.Environment):
-    properties = {
-        'DEBUG': typesystem.boolean(default=False),
-    }
-
-
-env = Env()
+from config.get_env import env
 
 routes = routes
 

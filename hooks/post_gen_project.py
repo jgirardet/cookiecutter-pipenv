@@ -17,19 +17,21 @@ if __name__ == '__main__':
     if '{{ cookiecutter.use_pypi_deployment_with_travis }}' != 'y':
         remove_file('travis_pypi_setup.py')
 
-    if '{{ cookiecutter.use_django }}' != 'y':
-        configdir = project_dir / 'config/'
-        import shutil
-        shutil.rmtree(
-            str(configdir
-                ))  # must be converted to string for compat whith  python3.5
-
     print("Creating git repository (needed for PBR to fully work)")
     subprocess.check_call(["git", "init", "."])
 
     # Add a dir for sphinx
     staticdir = project_dir / 'docs/_static/'
     staticdir.mkdir(exist_ok=True)
+
+    if '{{ cookiecutter.use_apistar }}' != 'y':
+        configdir = project_dir / 'config/'
+        import shutil
+        shutil.rmtree(
+            str(configdir
+                ))  # must be converted to string for compat whith  python3.5
+        remove_file('app.py')
+        remove_file('tests/conftest.py')
 
     if '{{ cookiecutter.create_developer_env_after_scapfolding }}' == 'y':
         print("Setting up a virtual environment")

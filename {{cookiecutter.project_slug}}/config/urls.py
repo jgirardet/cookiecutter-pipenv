@@ -1,3 +1,4 @@
+{% if cookiecutter.use_apistar == 'y' %}
 # Third Party Libraries
 from apistar import Include
 from apistar.handlers import docs_urls
@@ -9,3 +10,4 @@ routes = [
     Include('/static', static_urls),
     Include('/pseudos', pseudo_urls),
 ]
+{% endif %}

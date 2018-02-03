@@ -1,14 +1,21 @@
+from .get_env import env
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'local_db',
-    },
+        'ENGINE': env['DB_ENGINE'],
+        'PORT': env['DB_PORT'],
+        'NAME': env['DB_NAME'],
+        'HOST': env['DB_HOST'],
+        'USER': env['DB_USER'],
+        'PASSWORD': env['DB_PASSWORD'],
+    }
 }
 
 INSTALLED_APPS = [
-    'pseudo',
+    'pseudos',
 ]
 
-SECRET_KEY = 'mzeokfmzoekfmozekf'
+SECRET_KEY = env['SECRET_KEY']
+
 # added for manage.py only
-DEBUG = True
+DEBUG = env['DEBUG']

@@ -35,8 +35,8 @@ See https://github.com/audreyr/cookiecutter for more information about Cookiecut
 - **Travis-CI**: build, unit test
 - **Automatically deploy successful tagged version** to Pypi
 - **Automatically set Travis CI deployment token** with `travis_pypi_setup.py` script
-- *eisort, Yapf, AutoPep8**: code formatting
-- **flake8**: code style
+- **isort, Yapf, AutoPep8**: code formatting
+- **Flake8**: code style
 - **Coverage**: unit test report
 - Use **Pytest** for Unit testing
 - **Sphinx docs**: Documentation ready for generation and publication to **ReadTheDoc**
@@ -155,8 +155,7 @@ Django option:
     + django-extensions : for shell_plus  server_plus 
     + todo : manage.py, urls
 
-Asyncio:
-  Not tested, don't no if it's working
+
 
 What does make push do ?
   - style with : Yapf, AutoPep8 and flake8

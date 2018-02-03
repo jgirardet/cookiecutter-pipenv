@@ -10,7 +10,7 @@ def pseudo_create(session: Session, pseudo: PseudoSchema) -> Response:
     """
     create new pseudo
     """
-    p = session.Patient(**pseudo)
+    p = session.Pseudo(**pseudo)
     p.save()
     return Response(Pseudo(p), status=201)
 
@@ -19,5 +19,5 @@ def get_pseudos(session: Session) -> List(PseudoSchema):
     """
     Return list of Pseudo
     """
-    objs = session.pseudo.objects.all()
+    objs = session.Pseudo.objects.all()
     return [PseudoSchema(o) for o in objs]
