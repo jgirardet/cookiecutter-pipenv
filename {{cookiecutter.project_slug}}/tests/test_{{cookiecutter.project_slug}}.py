@@ -12,7 +12,7 @@ import pytest
 
 # {{cookiecutter.project_name}}
 from {{cookiecutter.project_slug}} import {{cookiecutter.project_slug}}
-from {{cookiecutter.project_slug}}.pseudo.models import Pseudo
+from {{cookiecutter.project_slug}}.pseudos.models import Pseudo
 
 {% if cookiecutter.use_asyncio == 'y' %}
 # note: use `asynctest.TestCase` instead of `unittest.TestCase` for your tests running inside

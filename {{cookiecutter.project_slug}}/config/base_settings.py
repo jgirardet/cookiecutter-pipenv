@@ -6,7 +6,7 @@ DATABASES = {
 }
 
 INSTALLED_APPS = [
-    'pseudo',
+    'pseudos',
 ]
 
 SECRET_KEY = 'mzeokfmzoekfmozekf'
