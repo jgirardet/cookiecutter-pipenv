@@ -36,8 +36,7 @@ if __name__ == '__main__':
     if '{{ cookiecutter.create_developer_env_after_scapfolding }}' == 'y':
         print("Setting up a virtual environment")
         subprocess.check_call(
-            ["pipenv", "--python",
-             str({{cookiecutter.python_version}})])
+            ["pipenv", "--python", '{{cookiecutter.python_version}}'])
         subprocess.check_call(["pipenv", "install", "--dev"])
 
         print("Initial build...")
