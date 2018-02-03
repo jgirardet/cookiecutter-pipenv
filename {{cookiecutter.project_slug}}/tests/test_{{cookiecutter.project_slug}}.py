@@ -14,7 +14,7 @@ import pytest
 from {{cookiecutter.project_slug}} import {{cookiecutter.project_slug}}
 from {{cookiecutter.project_slug}}.pseudo.models import Pseudo
 
-{ % if cookiecutter.use_asyncio == 'y' - %}
+{% if cookiecutter.use_asyncio == 'y' %}
 # note: use `asynctest.TestCase` instead of `unittest.TestCase` for your tests running inside
 # the asyncio loop.
 # Tests that do not use asyncio should still inherit from `unittest.TestCase`.
