@@ -39,7 +39,7 @@ def test_http_request():
 
 {% endif %}
 
-{% if cookiecutter.use_apistar_with_django == 'y' %}
+{% if cookiecutter.use_django_with_apistar == 'y' %}
 def test_http_request(ss):
     """
     Testing a view, using the test client with
