@@ -13,5 +13,6 @@
 	"use_pypi_deployment_with_travis": "y",
 	"create_developer_env_after_scapfolding": "y",
 	"use_asyncio": "n",
-	"use_django": "y"
+	"use_django": "y",
+	"use_apistar": "y"
 }
