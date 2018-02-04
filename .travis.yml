@@ -3,6 +3,8 @@ language: python
 python:
     - "3.5"
     - "3.6"
+env:
+  - DJANGO_SETTINGS_MODULE=config.local_settings
 
 install:
   - pip install pipenv>=9.0 cookiecutter
