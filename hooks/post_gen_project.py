@@ -58,9 +58,13 @@ if __name__ == '__main__':
         """
         chemin = pathlib.Path("{{cookiecutter.project_slug}}/.env")
         chemin.touch()
-        chemin.write_text(
-            "DB_ENGINE=django.db.backends.sqlite3\nDB_NAME=db.local\nSECRET_KEY=mokmokmok"
-        )
+        chemin.write_text("""
+            DB_ENGINE=django.db.backends.sqlite3
+            DB_NAME=db.local
+            SECRET_KEY=mokmokmok"
+            DJANGO_SETTINGS_MODULE=config.local_settings
+            DEBUG=True
+            """)
 
         print("Developer environment created. Activate with:")
         print("  pipenv shell or pipenv run command")

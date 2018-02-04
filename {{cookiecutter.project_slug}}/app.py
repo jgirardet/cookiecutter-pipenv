@@ -16,14 +16,11 @@ django.setup()
 
 from config.urls import routes
 
-if get_env.env['DEBUG']:
-    from config import local_settings as settings
-else:
-    from config import prod_settings as settings
+django_settings = get_env.env['DJANGO_SETTINGS_MODULE']
 
 app = App(
     routes=routes,
-    settings=settings.__dict__,
+    settings=django_settings.__dict__,
     commands=django_orm.commands,  # Install custom commands.
     components=django_orm.components,  # Install custom components.
 )
