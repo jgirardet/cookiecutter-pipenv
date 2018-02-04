@@ -56,15 +56,14 @@ if __name__ == '__main__':
         .env has to be created at start of project
 
         """
-        chemin = pathlib.Path(".env")
-        chemin.touch()
-        chemin.write_text("""
-            DB_ENGINE=django.db.backends.sqlite3
-            DB_NAME=db.local
-            SECRET_KEY=pleasechangethis
-            DJANGO_SETTINGS_MODULE=config.local_settings
-            DEBUG=True
-            """)
+        # chemin = pathlib.Path(".env")
+        # chemin.touch()
+        # chemin.write_text("""
+        #     DB_ENGINE=django.db.backends.sqlite3
+        #     DB_NAME=db.local
+        #     SECRET_KEY=pleasechangethis
+        #     DEBUG=True
+        #     """)
 
         print("Developer environment created. Activate with:")
         print("  pipenv shell or pipenv run command")

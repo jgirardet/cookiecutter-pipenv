@@ -30,5 +30,5 @@ if __name__ == '__main__':
     chemin = pathlib.Path("my_project_name/.env")
     chemin.touch()
     chemin.write_text(
-        "DB_ENGINE=django.db.backends.sqlite3\nDB_NAME=db.local\nSECRET_KEY=mokmokmok"
+        "DB_ENGINE=django.db.backends.sqlite3\nDB_NAME=db.local\nSECRET_KEY=mokmokmok\n"
     )
