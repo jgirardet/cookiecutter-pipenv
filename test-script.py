@@ -2,14 +2,21 @@ import sys
 
 from cookiecutter.main import cookiecutter
 import pathlib
+import os
 """
 just launch a cookie cookiecutter
 dont-t change my_project_name
 """
 if __name__ == '__main__':
+    ci = os.environ['CI']
+    print(ci)
+    if ci:
+        cookie_path = os.environ['TRAVIS_BUILD_DIR']
+    else:
+        cookie_path = sys.argv[1]
 
     cookiecutter(
-        'https://github.com/jgirardet/cookiecutter-pipenv',
+        cookie_path,
         no_input=True,
         # install specifique version en travis and pipenv bug under travis, make all does the job next
         extra_context={
