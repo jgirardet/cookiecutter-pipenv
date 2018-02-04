@@ -39,6 +39,28 @@ if __name__ == '__main__':
         migrationsdir = project_dir / '{{cookiecutter.project_slug}}' / 'migrations'
         shutil.rmtree(str(migrationsdir))
 
+    if '{{ cookiecutter.use_apistar }}' == 'y':
+        """
+        .env has to be created at start of project
+
+        """
+        chemin = pathlib.Path(".env")
+        chemin.touch()
+        chemin.write_text("""
+# DB_ENGINE=django.db.backends.postgresql
+# DB=PORT=5432
+# DB_NAME=
+# DB_HOST=localhost
+# DB_USER=
+# DB_PASSWORD=
+
+SECRET_KEY=youshouldchangeit
+
+# DEBUG=True
+
+DJANGO_SETTINGS_MODULE=config.local_settings
+            """)
+
     if '{{ cookiecutter.create_developer_env_after_scapfolding }}' == 'y':
         print("Setting up a virtual environment")
         subprocess.check_call(
@@ -52,18 +74,6 @@ if __name__ == '__main__':
         # --no-interactive options is not available on every version
         subprocess.check_call(
             [os.path.join(venv, "bin", "python"), "setup.py", "sdist"])
-        """
-        .env has to be created at start of project
-
-        """
-        # chemin = pathlib.Path(".env")
-        # chemin.touch()
-        # chemin.write_text("""
-        #     DB_ENGINE=django.db.backends.sqlite3
-        #     DB_NAME=db.local
-        #     SECRET_KEY=pleasechangethis
-        #     DEBUG=True
-        #     """)
 
         print("Developer environment created. Activate with:")
         print("  pipenv shell or pipenv run command")
