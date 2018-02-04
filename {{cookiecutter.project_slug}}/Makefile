@@ -104,6 +104,14 @@ clean-test: ## remove test and coverage artifacts
 	rm -f .coverage
 	rm -fr htmlcov/
 
+{% if cookiecutter.use_apistar == 'y' %}
+migrate: migrations
+	pipenv run python manage.py migrate
+
+migrations:
+	pipienv run python manage.py makemigrations
+{% endif %}
+
 # aliases to gracefully handle typos on poor dev's terminal
 check: checks
 devel: dev

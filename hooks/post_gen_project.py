@@ -32,6 +32,13 @@ if __name__ == '__main__':
                 ))  # must be converted to string for compat whith  python3.5
         remove_file('app.py')
         remove_file('tests/conftest.py')
+        remove_file('{{cookiecutter.project_slug}}/models.py')
+        remove_file('{{cookiecutter.project_slug}}/views.py')
+        remove_file('{{cookiecutter.project_slug}}/schemas.py')
+        remove_file('{{cookiecutter.project_slug}}/urls.py')
+        migrationsdir = project_dir / {{cookiecutter.project_slug}
+                                       } / 'migrations'
+        shutil.rmtree(str(migrationsdir))
 
     if '{{ cookiecutter.create_developer_env_after_scapfolding }}' == 'y':
         print("Setting up a virtual environment")
@@ -50,3 +57,8 @@ if __name__ == '__main__':
         print("Developer environment created. Activate with:")
         print("  pipenv shell")
         print(PROJECT_DIRECTORY)
+        if '{{ cookiecutter.use_apistar }}' == 'y':
+            subprocess.check_call([
+                "echo", "-e",
+                '"DB_ENGINE=django.db.backends.sqlite3\nDB_NAME=db.local\nSECRET_KEY=mokmokmok"'
+            ])

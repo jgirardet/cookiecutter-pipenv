@@ -15,7 +15,7 @@ def pseudo_create(session: Session, pseudo: PseudoSchema) -> Response:
     return Response(Pseudo(p), status=201)
 
 
-def get_pseudos(session: Session) -> List(PseudoSchema):
+def get_pseudos(session: Session) -> List[PseudoSchema]:
     """
     Return list of Pseudo
     """

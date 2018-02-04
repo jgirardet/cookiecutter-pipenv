@@ -6,24 +6,20 @@ test_{{ cookiecutter.project_slug }}
 ----------------------------------
 Tests for `{{ cookiecutter.project_slug }}` module.
 """
-
+{% if cookiecutter.use_apistar == 'y' %}
 # Third Party Libraries
 from apistar.test import TestClient
 from app import app
+from {{cookiecutter.project_slug}}.pseudos.models import Pseudo
 
-# Third Party Libraries
-import pytest
+{% endif %}
 
 # {{cookiecutter.project_name}}
 from {{cookiecutter.project_slug}} import {{cookiecutter.project_slug}}
-from {{cookiecutter.project_slug}}.pseudo.models import Pseudo
 
 def test_{{cookiecutter.project_slug}}():
-    assert True
+    assert {{cookiecutter.project_slug}}.main() == "hello"
 
-
-def test_pseudo():
-    assert Pseudo.name == "pseudo"
 
 
 
@@ -37,9 +33,6 @@ def test_http_request():
     response = client.get('http://localhost/pseudos/')
     assert response.status_code == 200
 
-{% endif %}
-
-{% if cookiecutter.use_django_with_apistar == 'y' %}
 def test_http_request(ss):
     """
     Testing a view, using the test client with

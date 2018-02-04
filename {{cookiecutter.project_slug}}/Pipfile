@@ -22,7 +22,7 @@ sphinx = "*"
 sphinx-autobuild = "*"
 pytest-pythonpath = "*"
 
-{% if cookiecutter.use_django_with_apistar == 'y' %}
+{% if cookiecutter.use_apistar == 'y' %}
 pytest-django = "*"
 django-reset-migrations = "*"
 django-extensions = "*"
@@ -30,12 +30,10 @@ django-extensions = "*"
 
 [packages]
 pbr = ">=3.0"
-{% if cookiecutter.use_django_with_apistar == 'y' %}
-django = "*"
-{% endif %}
 {% if cookiecutter.use_apistar == 'y' %}
-apistar
-apistar-shell
-psycopg2
+apistar = {git = "https://github.com/audiolion/apistar.git", editable=true}
+apistar-shell = "*"
+django = "*"
+psycopg2 = "*"
 {% endif %}
 
