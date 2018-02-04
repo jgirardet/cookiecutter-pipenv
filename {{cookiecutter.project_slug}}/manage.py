@@ -3,6 +3,8 @@ import sys
 
 if __name__ == "__main__":
     # os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.local_settings")
+    mod = os.environ['DJANGO_SETTINGS_MODULE']
+    print(mod, type(mod))
     import django
     django.setup()
     try:
