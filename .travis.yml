@@ -10,8 +10,4 @@ install:
 script:
   - python test-script.py 
   - cd my_project_name
-  {% if cookiecutter.use_apistar == 'y' %}
-  - echo -e "DB_ENGINE=django.db.backends.sqlite3\nDB_NAME=db.local\nSECRET_KEY=mokmokmok" > .env
-
-  {% endif %}
   - make all 
