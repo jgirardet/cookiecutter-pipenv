@@ -23,11 +23,11 @@ if __name__ == '__main__':
             "python_version": sys.version[:3],
             "create_developer_env_after_scapfolding": "n",
         })
-    """
-    .env has to be created at start of project
+    # """
+    # .env has to be created at start of project
 
-    """
-    chemin = pathlib.Path("my_project_name/.env")
-    chemin.touch()
-    chemin.write_text(
-        "SECRET_KEY=mokmokmok\nDJANGO_SETTINGS_MODULE=config.local_settings\n")
+    # """
+    # chemin = pathlib.Path("my_project_name/.env")
+    # chemin.touch()
+    # chemin.write_text(
+    #     "SECRET_KEY=mokmokmok\nDJANGO_SETTINGS_MODULE=config.local_settings\n")

@@ -2,9 +2,7 @@ import os
 import sys
 
 if __name__ == "__main__":
-    print(sys.path)
-    print(os.getcwd())
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.local_settings")
+    # os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.local_settings")
     import django
     django.setup()
     try:
