@@ -19,7 +19,7 @@ DATABASES = {
         'PASSWORD': env['DB_PASSWORD'],
     }
 }
-#project has to be added before app for python path purpose
+
 INSTALLED_APPS = [
     'pseudos',
 ]

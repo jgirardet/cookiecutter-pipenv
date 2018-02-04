@@ -21,8 +21,6 @@ def test_{{cookiecutter.project_slug}}():
     assert {{cookiecutter.project_slug}}.main() == "hello"
 
 
-
-
 {% if cookiecutter.use_apistar == 'y' %}
 
 def test_http_request():
