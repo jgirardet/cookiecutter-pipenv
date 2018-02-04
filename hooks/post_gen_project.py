@@ -56,12 +56,12 @@ if __name__ == '__main__':
         .env has to be created at start of project
 
         """
-        chemin = pathlib.Path("{{cookiecutter.project_slug}}/.env")
+        chemin = pathlib.Path(".env")
         chemin.touch()
         chemin.write_text("""
             DB_ENGINE=django.db.backends.sqlite3
             DB_NAME=db.local
-            SECRET_KEY=mokmokmok"
+            SECRET_KEY=pleasechangethis
             DJANGO_SETTINGS_MODULE=config.local_settings
             DEBUG=True
             """)
