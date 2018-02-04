@@ -36,8 +36,7 @@ if __name__ == '__main__':
         remove_file('{{cookiecutter.project_slug}}/views.py')
         remove_file('{{cookiecutter.project_slug}}/schemas.py')
         remove_file('{{cookiecutter.project_slug}}/urls.py')
-        migrationsdir = project_dir / {{cookiecutter.project_slug}
-                                       } / 'migrations'
+        migrationsdir = project_dir / '{{cookiecutter.project_slug}}' / 'migrations'
         shutil.rmtree(str(migrationsdir))
 
     if '{{ cookiecutter.create_developer_env_after_scapfolding }}' == 'y':
