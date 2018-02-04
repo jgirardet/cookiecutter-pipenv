@@ -1,14 +1,22 @@
-# Third Party Libraries
+""" 
+    Apistar Main App
+    trouble with django, pytest, configure...
+
+    routes has to be imported AFTER django_setup()
+
+   isort:skip_file
+"""
+
+import django
 from apistar.backends import django_orm
 from apistar.frameworks.wsgi import WSGIApp as App
-# from config import base_settings
+from config import get_env
+
+django.setup()
+
 from config.urls import routes
 
-from config.get_env import env
-
-routes = routes
-
-if env['DEBUG']:
+if get_env.env['DEBUG']:
     from config import local_settings as settings
 else:
     from config import prod_settings as settings
