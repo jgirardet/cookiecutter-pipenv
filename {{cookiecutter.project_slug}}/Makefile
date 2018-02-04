@@ -106,10 +106,10 @@ clean-test: ## remove test and coverage artifacts
 
 {% if cookiecutter.use_apistar == 'y' %}
 migrate: migrations
-	pipenv run python manage.py migrate
+	pipenv run apistar migrate
 
 migrations:
-	pipenv run python manage.py makemigrations
+	pipenv run apistar makemigrations
 {% endif %}
 
 # aliases to gracefully handle typos on poor dev's terminal
