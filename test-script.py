@@ -8,12 +8,12 @@ just launch a cookie cookiecutter
 dont-t change my_project_name
 """
 if __name__ == '__main__':
-    ci = os.environ['CI']
-    print(ci)
-    if ci:
-        cookie_path = os.environ['TRAVIS_BUILD_DIR']
-    else:
+    try:
+        os.environ['CI']  #is continus integration ?
+    except KeyError:
         cookie_path = sys.argv[1]
+    else:
+        cookie_path = os.environ['TRAVIS_BUILD_DIR']
 
     cookiecutter(
         cookie_path,
