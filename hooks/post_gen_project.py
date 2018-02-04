@@ -58,7 +58,7 @@ SECRET_KEY=youshouldchangeit
 
 # DEBUG=True
 
-DJANGO_SETTINGS_MODULE={{cookiecutter.project_slug}}.config.local_settings
+DJANGO_SETTINGS_MODULE=config.local_settings
             """)
 
     if '{{ cookiecutter.create_developer_env_after_scapfolding }}' == 'y':
