@@ -14,7 +14,7 @@ if __name__ == '__main__':
         cookie_path = sys.argv[1]
     else:
         cookie_path = os.environ['TRAVIS_BUILD_DIR']
-
+    print(cookie_path)
     cookiecutter(
         cookie_path,
         no_input=True,
