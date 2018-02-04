@@ -52,12 +52,16 @@ if __name__ == '__main__':
         # --no-interactive options is not available on every version
         subprocess.check_call(
             [os.path.join(venv, "bin", "python"), "setup.py", "sdist"])
+        """
+        .env has to be created at start of project
+
+        """
+        chemin = pathlib.Path("{{cookiecutter.project_slug}}/.env")
+        chemin.touch()
+        chemin.write_text(
+            "DB_ENGINE=django.db.backends.sqlite3\nDB_NAME=db.local\nSECRET_KEY=mokmokmok"
+        )
 
         print("Developer environment created. Activate with:")
-        print("  pipenv shell")
+        print("  pipenv shell or pipenv run command")
         print(PROJECT_DIRECTORY)
-        if '{{ cookiecutter.use_apistar }}' == 'y':
-            subprocess.check_call([
-                "echo", "-e",
-                '"DB_ENGINE=django.db.backends.sqlite3\nDB_NAME=db.local\nSECRET_KEY=mokmokmok"'
-            ])

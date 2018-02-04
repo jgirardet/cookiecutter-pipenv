@@ -109,7 +109,7 @@ migrate: migrations
 	pipenv run python manage.py migrate
 
 migrations:
-	pipienv run python manage.py makemigrations
+	pipenv run python manage.py makemigrations
 {% endif %}
 
 # aliases to gracefully handle typos on poor dev's terminal

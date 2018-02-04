@@ -1,4 +1,13 @@
+# Standard Libraries
+import pathlib
+import sys
+
 from .get_env import env
+
+# add app folder to sys.path
+PROJECT_ROOT = pathlib.Path(__file__).absolute()
+PROJECT_ROOT = PROJECT_ROOT.parents[1] / "{{cookiecutter.project_slug}}"
+sys.path.insert(0, str(PROJECT_ROOT))
 
 DATABASES = {
     'default': {
@@ -12,7 +21,7 @@ DATABASES = {
 }
 #project has to be added before app for python path purpose
 INSTALLED_APPS = [
-    '{{cookiecutter.project_slug}}.pseudos',
+    'pseudos',
 ]
 
 SECRET_KEY = env['SECRET_KEY']

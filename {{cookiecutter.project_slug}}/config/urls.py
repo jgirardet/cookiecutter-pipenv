@@ -3,7 +3,7 @@
 from apistar import Include
 from apistar.handlers import docs_urls
 from apistar.handlers import static_urls
-from {{cookiecutter.project_slug}}.pseudos.urls import pseudo_urls
+from pseudos.urls import pseudo_urls
 
 routes = [
     Include('/docs', docs_urls),

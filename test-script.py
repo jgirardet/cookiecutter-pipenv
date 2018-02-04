@@ -1,6 +1,7 @@
 import sys
 
 from cookiecutter.main import cookiecutter
+import pathlib
 """
 just launch a cookie cookiecutter
 dont-t change my_project_name
@@ -19,7 +20,6 @@ if __name__ == '__main__':
     .env has to be created at start of project
 
     """
-    import pathlib
     chemin = pathlib.Path("my_project_name/.env")
     chemin.touch()
     chemin.write_text(
