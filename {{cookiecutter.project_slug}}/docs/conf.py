@@ -20,15 +20,14 @@
 import os
 import sys
 
-# sys.path.insert(0, os.path.abspath('..'))
-# sys.path.insert(0, os.path.abspath('../{{ cookiecutter.project_slug }}'))
 
 {% if cookiecutter.use_apistar == 'y' %}
 # ----Django settings
-os.environ[
-    'DJANGO_SETTINGS_MODULE'] = 'config.prod_settings'
-import django  # isort:skip
-django.setup()
+import config.settings
+{% else %}
+
+sys.path.insert(0, os.path.abspath('..'))
+sys.path.insert(0, os.path.abspath('../{{ cookiecutter.project_slug }}'))
 {%- endif %}
 
 

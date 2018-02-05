@@ -41,7 +41,7 @@ See https://github.com/audreyr/cookiecutter for more information about Cookiecut
 - Use **Pytest** for Unit testing
 - **Sphinx docs**: Documentation ready for generation and publication to **ReadTheDoc**
 - controle package security with **pyup**.
-- 
+- Optional : **apistar** configured with djangoORM
 
 
 Get Started:
@@ -142,18 +142,26 @@ Clean everything:
   
       make clean
 
-Django option:
+Apistar option:
   this add:
-  
-  - repo config for settings, urls...
-  - adjust the doc. doc won't work if you say no to django  but then you install anyway
-  - add package : 
 
+  - only for python 3.6
+  - config directory for settings, urls, get_env
+  - a sample pseudo app : models, urls, schema, views
+  - pytest fixture for apistar's session injection
+  - sample test
+  - Add to Makefile:
+
+    + migrate : does migrations and migrate
+    + run : run apistar
+  - added packages : 
+
+    + apistar, django, psycopg2
     + pytest-django
-    + pytest-pythonpath: django wants config in path
+    + pytest-pythonpath
     + django-reset-migrations: allways usefull
     + django-extensions : for shell_plus  server_plus 
-    + todo : manage.py, urls
+    + todo : manage.py
 
 
 

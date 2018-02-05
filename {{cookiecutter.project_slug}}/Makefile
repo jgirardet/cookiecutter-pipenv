@@ -110,6 +110,9 @@ migrate: migrations
 
 migrations:
 	pipenv run apistar makemigrations
+
+run:
+	pipenv run apistar run
 {% endif %}
 
 # aliases to gracefully handle typos on poor dev's terminal

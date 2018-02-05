@@ -18,7 +18,8 @@
 
 {{ cookiecutter.project_short_description}}
 
-* Free software: MIT
+
+* License : {{ cookiecutter.open_source_license}} 
 * Documentation: https://{{ cookiecutter.project_name }}.readthedocs.org/en/latest/
 * Source: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.github_repository_name }}
 

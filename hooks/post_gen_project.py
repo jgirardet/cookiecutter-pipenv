@@ -31,6 +31,7 @@ if __name__ == '__main__':
             str(configdir
                 ))  # must be converted to string for compat whith  python3.5
         remove_file('app.py')
+        remove_file('manage.py')
         remove_file('tests/conftest.py')
         remove_file('{{cookiecutter.project_slug}}/models.py')
         remove_file('{{cookiecutter.project_slug}}/views.py')
@@ -38,28 +39,6 @@ if __name__ == '__main__':
         remove_file('{{cookiecutter.project_slug}}/urls.py')
         migrationsdir = project_dir / '{{cookiecutter.project_slug}}' / 'migrations'
         shutil.rmtree(str(migrationsdir))
-
-    if '{{ cookiecutter.use_apistar }}' == 'y':
-        """
-        .env has to be created at start of project
-
-        """
-        chemin = pathlib.Path(".env")
-        chemin.touch()
-        chemin.write_text("""
-# DB_ENGINE=django.db.backends.postgresql
-# DB=PORT=5432
-# DB_NAME=
-# DB_HOST=localhost
-# DB_USER=
-# DB_PASSWORD=
-
-SECRET_KEY=youshouldchangeit
-
-# DEBUG=True
-
-DJANGO_SETTINGS_MODULE=config.local_settings
-            """)
 
     if '{{ cookiecutter.create_developer_env_after_scapfolding }}' == 'y':
         print("Setting up a virtual environment")

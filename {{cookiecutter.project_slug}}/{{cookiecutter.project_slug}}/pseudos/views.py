@@ -12,12 +12,14 @@ def pseudo_create(session: Session, pseudo: PseudoSchema) -> Response:
     """
     p = session.Pseudo(**pseudo)
     p.save()
-    return Response(Pseudo(p), status=201)
+    return Response(PseudoSchema(p), status=201)
 
 
 def get_pseudos(session: Session) -> List[PseudoSchema]:
     """
     Return list of Pseudo
     """
+    a = Pseudo(name="mokmok")
+    a.save()
     objs = session.Pseudo.objects.all()
     return [PseudoSchema(o) for o in objs]
