@@ -152,7 +152,7 @@ Clean everything:
 Apistar option:
   this add:
 
-  - only for python 3.6
+  - only for python 3.6 and for now only libray-mod not app-mod (waiting apistar bug fix)
   - config directory for settings, urls, get_env
   - a sample pseudo app : models, urls, schema, views
   - pytest fixture for apistar's session injection
