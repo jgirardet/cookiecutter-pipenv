@@ -82,7 +82,8 @@ Step 3:
 - commit your work!
 - create a github repo
 - enable your project on Travis
-- execute ``pipenv run python travis_pypi_setup.py`` if you want auto deployement of new version on Pypi
+- execute ``pipenv run python travis_pypi_setup.py`` if you want auto deployement of new version on Pypi. Beware your Yaml file will be overwritten, you will have to set the
+format back manually maybe.
 - enable on read the docs if needed
 - enable your coverall account
 - enable you pyup account
@@ -184,7 +185,7 @@ You're welcome
 ChangeLog after Fork
 ----------------------
 - tests out of package directory
-- config folder for django only
+- config folder for django/apistar only
 - travis start at python 3.5
 - subversion of python at install (3.5, 3.6 etc)
 - Sphinx
@@ -197,3 +198,8 @@ ChangeLog after Fork
 - Pipfile.lock is not ignored anymore  by default
 - write oc : lounc pipi with pipenv 
 - package is library or app
+- apistar : getenv, pytest fixture, app
+- remove test-scipt.sh add test-script.py
+- Makefile : apistar stuff
+- apistar : manage.py
+- 
