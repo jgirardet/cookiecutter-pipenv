@@ -38,6 +38,12 @@ See https://github.com/audreyr/cookiecutter for more information about Cookiecut
 - **isort, Yapf, AutoPep8**: code formatting
 - **Flake8**: code style
 - **Coverage**: unit test report
+
+
+todo :
+-------
+create django with migrations dir
+isort ignor migrations
 - Use **Pytest** for Unit testing
 - **Sphinx docs**: Documentation ready for generation and publication to **ReadTheDoc**
 - controle package security with **pyup**.
