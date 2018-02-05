@@ -11,6 +11,6 @@
 	"pypi_username": "{{ cookiecutter.github_username }}",
 	"github_repository_name": "{{ cookiecutter.project_slug }}",
 	"use_pypi_deployment_with_travis": "y",
-	"create_developer_env_after_scapfolding": "y",
-	"use_apistar": "n"
+	"use_apistar": "n",
+	"create_developer_env_after_scapfolding": "y"
 }

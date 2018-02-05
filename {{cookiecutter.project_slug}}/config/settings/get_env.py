@@ -24,5 +24,5 @@ env = Env()
 
 # add app folder to sys.path when imported in app.py
 PROJECT_ROOT = pathlib.Path(__file__).absolute()
-PROJECT_ROOT = PROJECT_ROOT.parents[2] / "aze"
+PROJECT_ROOT = PROJECT_ROOT.parents[2] / "{{cookiecutter.project_slug}}"
 sys.path.insert(0, str(PROJECT_ROOT))
