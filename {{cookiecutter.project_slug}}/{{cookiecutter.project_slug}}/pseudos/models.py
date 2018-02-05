@@ -1,16 +1,10 @@
 # -*- coding: utf-8 -*-
 
-
-def main():
-    pass
+from django.db import models
 
 
-class Pseudo:
+class Pseudo(models.Model):
     """
     just a bas class to test python path
     """
-    name = "pseudo"
-
-
-if __name__ == '__main__':
-    main()
+    name = models.CharField(max_length=34)

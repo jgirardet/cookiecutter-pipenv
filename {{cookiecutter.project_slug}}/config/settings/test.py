@@ -1,8 +1,8 @@
-from .base_settings import *
+from .base import *
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'local_db',
+        'NAME': ':memory:',
     },
 }

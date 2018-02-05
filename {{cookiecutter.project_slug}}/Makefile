@@ -2,7 +2,7 @@
 
 MODULE:={{ cookiecutter.project_slug }}
 
-all: dev style checks requirements.txt build dists doc test-unit test-coverage
+all: dev style checks requirements.txt {% if cookiecutter.use_apistar == 'y' %}migrate{% endif %} build dists doc test-unit test-coverage
 
 dev:
 	pipenv install --dev --python {{cookiecutter.python_version}}
@@ -103,6 +103,17 @@ clean-test: ## remove test and coverage artifacts
 	rm -fr .tox/
 	rm -f .coverage
 	rm -fr htmlcov/
+
+{% if cookiecutter.use_apistar == 'y' %}
+migrate: migrations
+	pipenv run apistar migrate
+
+migrations:
+	pipenv run apistar makemigrations
+
+run:
+	pipenv run apistar run
+{% endif %}
 
 # aliases to gracefully handle typos on poor dev's terminal
 check: checks

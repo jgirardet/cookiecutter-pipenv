@@ -3,11 +3,11 @@ language: python
 python:
     - "3.5"
     - "3.6"
-
+    
 install:
   - pip install pipenv>=9.0 cookiecutter
 
 script:
   - python test-script.py 
   - cd my_project_name
-  - make all 
+  - make all

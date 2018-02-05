@@ -4,6 +4,7 @@ from __future__ import absolute_import, division, print_function
 import os
 import pathlib
 import subprocess
+import shutil
 
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
 project_dir = pathlib.Path(PROJECT_DIRECTORY)
@@ -15,14 +16,8 @@ def remove_file(filepath):
 
 if __name__ == '__main__':
     if '{{ cookiecutter.use_pypi_deployment_with_travis }}' != 'y':
-        remove_file('travis_pypi_setup.py')
-
-    if '{{ cookiecutter.use_django }}' != 'y':
-        configdir = project_dir / 'config/'
-        import shutil
-        shutil.rmtree(
-            str(configdir
-                ))  # must be converted to string for compat whith  python3.5
+        travipypi = project_dir / 'travis_pypi_setup.py'
+        remove_file(str(travipypi))
 
     print("Creating git repository (needed for PBR to fully work)")
     subprocess.check_call(["git", "init", "."])
@@ -31,11 +26,21 @@ if __name__ == '__main__':
     staticdir = project_dir / 'docs/_static/'
     staticdir.mkdir(exist_ok=True)
 
+    if '{{ cookiecutter.use_apistar }}' != 'y':
+        configdir = project_dir / 'config/'
+        shutil.rmtree(
+            str(configdir
+                ))  # must be converted to string for compat whith  python3.5
+        remove_file('app.py')
+        remove_file('manage.py')
+        remove_file('tests/conftest.py')
+        pseudosdir = project_dir / '{{cookiecutter.project_slug}}' / 'pseudos'
+        shutil.rmtree(str(pseudosdir))
+
     if '{{ cookiecutter.create_developer_env_after_scapfolding }}' == 'y':
         print("Setting up a virtual environment")
         subprocess.check_call(
-            ["pipenv", "--python",
-             str({{cookiecutter.python_version}})])
+            ["pipenv", "--python", '{{cookiecutter.python_version}}'])
         subprocess.check_call(["pipenv", "install", "--dev"])
 
         print("Initial build...")
@@ -47,5 +52,5 @@ if __name__ == '__main__':
             [os.path.join(venv, "bin", "python"), "setup.py", "sdist"])
 
         print("Developer environment created. Activate with:")
-        print("  pipenv shell")
+        print("  pipenv shell or pipenv run command")
         print(PROJECT_DIRECTORY)
