@@ -12,9 +12,7 @@
 .. image:: https://badge.fury.io/py/{{ cookiecutter.project_name }}.svg
    :target: https://pypi.python.org/pypi/{{ cookiecutter.project_name }}/
    :alt: Pypi package
-.. image:: https://img.shields.io/badge/license-MIT-blue.svg
-   :target: ./LICENSE
-   :alt: {{ cookiecutter.open_source_license}}
+
 
 {{ cookiecutter.project_short_description}}
 
