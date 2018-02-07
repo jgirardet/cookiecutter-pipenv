@@ -1,8 +1,7 @@
 # Third Party Libraries
 import pytest
-from apistar.backends.django_orm import DjangoORM
-from apistar.backends.django_orm import get_session
-from config.settings import test
+from apistar.backends.django_orm import DjangoORM, Session
+from config import settings
 
 
 @pytest.fixture(autouse=True)
@@ -11,5 +10,4 @@ def ss(db):
     session from django backend
     may be passed as parameter for testing views with session as argument
     """
-    with get_session(DjangoORM(test.__dict__)) as s:
-        yield s
+    return Session(DjangoORM(settings.__dict__))

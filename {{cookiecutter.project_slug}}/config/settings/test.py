@@ -6,3 +6,5 @@ DATABASES = {
         'NAME': ':memory:',
     },
 }
+#to use  if postregsql is  via a .env file.
+#DATABASES['default']['NAME'] = 'test'
