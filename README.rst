@@ -38,6 +38,12 @@ See https://github.com/audreyr/cookiecutter for more information about Cookiecut
 - **isort, Yapf, AutoPep8**: code formatting
 - **Flake8**: code style
 - **Coverage**: unit test report
+
+
+todo :
+-------
+create django with migrations dir
+isort ignor migrations
 - Use **Pytest** for Unit testing
 - **Sphinx docs**: Documentation ready for generation and publication to **ReadTheDoc**
 - controle package security with **pyup**.
@@ -146,7 +152,8 @@ Clean everything:
 Apistar option:
   this add:
 
-  - only for python 3.6
+  - only for python 3.6.
+  - uses audiolion/apistar version, waitiing official bug fix.
   - config directory for settings, urls, get_env
   - a sample pseudo app : models, urls, schema, views
   - pytest fixture for apistar's session injection

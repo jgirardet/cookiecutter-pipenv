@@ -4,6 +4,7 @@ import typing
 from contextlib import contextmanager
 
 import pytest
+
 from apistar import Component
 from apistar.backends.django_orm import DjangoORM
 from apistar.backends.django_orm import Session
@@ -19,6 +20,7 @@ def ss(db):
     session from django backend
     may be passed as parameter for testing views with session as argument
     """
+
     return Session(DjangoORM(settings.__dict__))
 
 
@@ -43,3 +45,5 @@ def app_fix():
             c = Component(Session, init=get_ss, preload=False)
         comp.append(c)
     return App(routes=routes, settings=settings.__dict__, components=comp)
+
+    return Session(DjangoORM(settings.__dict__))
