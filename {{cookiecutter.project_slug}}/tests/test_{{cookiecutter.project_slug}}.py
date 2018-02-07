@@ -8,8 +8,8 @@ Tests for `{{ cookiecutter.project_slug }}` module.
 {% if cookiecutter.use_apistar == 'y' %}
 # Third Party Libraries
 from apistar.test import TestClient
-from app import app
 from pseudos.models import Pseudo
+improt pytest
 
 {% endif %}
 
@@ -22,21 +22,41 @@ def test_{{cookiecutter.project_slug}}():
 
 {% if cookiecutter.use_apistar == 'y' %}
 
-def test_http_request():
+pytestmark = pytest.mark.django_db()
+
+
+
+def test_http_request(app_fix):
     """
-    Testing a view, using the test client with
+    Testing a view, using the test client with app_fix fixture
     """
-    client = TestClient(app)
+
+    client = TestClient(app_fix)
     response = client.get('http://localhost/pseudos/')
     assert response.status_code == 200
 
-def test_http_request_with_fixture(ss):
+
+def test_add_query():
     """
-    Testing a view, using the test client with
-    but testing with fixture
+    Testing a db
     """
-    client = TestClient(app)
-    e = ss.Pseudo.objects.all()
-    response = client.get('http://localhost/pseudos/')
-    assert response.status_code == 200
+    a = Pseudo.objects.create(name="mokmok")
+    b = Pseudo.objects.get(name="mokmok")
+
+    assert a == b
+
+
+def test_write():
+    """
+    Testing a db
+    """
+    a = Pseudo(name="jilj")
+    a.save()
+    assert a.id
+
+
+def test_fixture(ss):
+    a = Pseudo(name="jilj")
+    a.save()
+    assert ss.Pseudo.objects.get(id=a.id) == a
 {% endif %}

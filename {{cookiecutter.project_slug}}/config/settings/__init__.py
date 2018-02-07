@@ -4,12 +4,26 @@ from .get_env import env
 import django
 from django.apps import apps
 
+# define this is needed by django
 os.environ['DJANGO_SETTINGS_MODULE'] = 'config.settings'
+"""
+We check environment.
+If pytest then test environment.
+else local or prod denpending DEBUG
+"""
 
-if env['DEBUG'] == True:
-    from .local import *
+try:
+    os.environ['PYTEST_VER']  #given by pytest-env-info
+except KeyError:
+    if env['DEBUG'] == True:
+        print('local config loaded')
+        from .local import *
+    else:
+        print('prod config loaded')
+        from .prod import *
 else:
-    from .prod import *
+    print('test config loaded')
+    from .test import *
 
 if SECRET_KEY == "please_change_it":
     print("""
@@ -28,5 +42,6 @@ if DEBUG:
 ##################################
 """)
 
+# needed
 if not apps.ready:
     django.setup()
