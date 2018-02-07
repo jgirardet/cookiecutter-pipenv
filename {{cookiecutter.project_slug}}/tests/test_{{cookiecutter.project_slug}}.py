@@ -9,7 +9,7 @@ Tests for `{{ cookiecutter.project_slug }}` module.
 # Third Party Libraries
 from apistar.test import TestClient
 from pseudos.models import Pseudo
-improt pytest
+import pytest
 
 {% endif %}
 
