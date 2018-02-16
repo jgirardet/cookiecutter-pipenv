@@ -21,6 +21,8 @@ pipenv-to-requirements = "*"
 sphinx = "*"
 sphinx-autobuild = "*"
 pytest-pythonpath = "*"
+pytest-timeit = "*"
+
 
 {% if cookiecutter.use_apistar == 'y' %}
 pytest-django = "*"
@@ -32,7 +34,6 @@ django-extensions = "*"
 pbr = ">=3.0"
 {% if cookiecutter.use_apistar == 'y' %}
 apistar = {git = "https://github.com/audiolion/apistar.git", editable=true}
-apistar-shell = "*"
 django = "*"
 psycopg2 = "*"
 {% endif %}
