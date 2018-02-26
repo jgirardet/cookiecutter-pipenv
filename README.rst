@@ -95,6 +95,19 @@ Usage:
 -------
 
 
+Basic Workflow
+  githook does :
+    - style with : Yapf, AutoPep8 and flake8
+    - check pep 508
+    - use safety from  https://github.com/pyupio/safety
+    - autogenerate requirements.txt and requirements-dev.txt
+
+  .. code-block:: bash
+  
+      make githook
+      add/commit your work
+      make push
+
 Run tests
   .. code-block:: bash
   
@@ -169,14 +182,6 @@ Apistar option:
 
 
 
-What does make push do ?
-  - style with : Yapf, AutoPep8 and flake8
-  - check pep 508
-  - use safety from  https://github.com/pyupio/safety
-  - autogenerate requirements.txt and requirements-dev.txt
-  - git status : to show if some uncommited things
-  - push commits and tags
-
 
 
 Contributing
@@ -206,3 +211,5 @@ ChangeLog after Fork
 - Makefile : apistar stuff
 - apistar : manage.py
 - fixtures app
+- separated django/apistar settings
+- removed django-extensions for apistar shell

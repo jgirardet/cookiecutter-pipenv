@@ -16,13 +16,15 @@ class Env(environment.Environment):
         'DB_USER': typesystem.string(default=''),
         'DB_PASSWORD': typesystem.string(default=''),
         'SECRET_KEY': typesystem.string(default='please_change_it'),
+        'JWT_SECRET': typesystem.string(default='please_change_it'),
         'DEBUG': typesystem.boolean(default=True),
+        'TEST_RUNNING': typesystem.boolean(default=False)
     }
 
 
 env = Env()
 
-# add app folder to sys.path when imported in app.py
+# add app folder to sys.path
 PROJECT_ROOT = pathlib.Path(__file__).absolute()
-PROJECT_ROOT = PROJECT_ROOT.parents[2] / "{{cookiecutter.project_slug}}"
+PROJECT_ROOT = PROJECT_ROOT.parents[1] / "{{cookiecutter.project_slug}}"
 sys.path.insert(0, str(PROJECT_ROOT))

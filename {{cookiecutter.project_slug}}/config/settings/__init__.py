@@ -1,47 +1,20 @@
 # -*- coding: utf-8 -*-
-import os
-from .get_env import env
-import django
-from django.apps import apps
+from config.get_env import env
 
-# define this is needed by django
-os.environ['DJANGO_SETTINGS_MODULE'] = 'config.settings'
-"""
-We check environment.
-If pytest then test environment.
-else local or prod denpending DEBUG
-"""
-
-try:
-    os.environ['PYTEST_VER']  #given by pytest-env-info
-except KeyError:
-    if env['DEBUG'] == True:
-        print('local config loaded')
+if not env['TEST_RUNNING']:
+    if env['DEBUG']:
+        print("\n ### Apistar'' LOCAL config loaded ###  \n")
         from .local import *
     else:
-        print('prod config loaded')
-        from .prod import *
+        print("\n ### Apistar PRODUCTION config loaded ###  \n")
+    from .prod import *
 else:
-    print('test config loaded')
-    from .test import *
+    print("\n ### Apistar TESTING config loaded ###  \n")
+    from .testing import *
 
-if SECRET_KEY == "please_change_it":
-    print("""
-##################################
-# YOU MUST CHANGE YOU SECRET KEY #
-##################################
-#Add  SECRET_KEY to local or prod#
-#      or set it in .env         #
-##################################
-""")
-
-if DEBUG:
+if env['DEBUG']:
     print("""
 ##################################
 #     DEBUG MODE IS ACTIVE       #
 ##################################
 """)
-
-# needed
-if not apps.ready:
-    django.setup()
