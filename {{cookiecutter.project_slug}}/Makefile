@@ -72,7 +72,7 @@ update:
 
 githook: checks style requirements.txt
 	
-push: githook
+push:
 	git status
 	git push origin --all
 	git push origin --tags
