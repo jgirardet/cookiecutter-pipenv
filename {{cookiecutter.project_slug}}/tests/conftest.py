@@ -10,7 +10,7 @@ from apistar.backends.django_orm import DjangoORM
 from apistar.backends.django_orm import Session
 from apistar.frameworks.wsgi import WSGIApp as App
 from app import components
-from config import settings
+from app import settings
 from config.urls import routes
 
 
@@ -21,7 +21,7 @@ def ss(db):
     may be passed as parameter for testing views with session as argument
     """
 
-    return Session(DjangoORM(settings.__dict__))
+    return Session(DjangoORM(settings))
 
 
 @contextmanager
@@ -32,7 +32,7 @@ def get_ss(backend: DjangoORM) -> typing.Generator[Session, None, None]:
     yield Session(backend)
 
 
-@pytest.fixture(autouse=True)
+@pytest.fixture(scope='session')
 def app_fix():
     """
     fixture for apistar app
@@ -44,6 +44,4 @@ def app_fix():
         if c.cls is Session:
             c = Component(Session, init=get_ss, preload=False)
         comp.append(c)
-    return App(routes=routes, settings=settings.__dict__, components=comp)
-
-    return Session(DjangoORM(settings.__dict__))
+    return App(routes=routes, settings=settings, components=comp)

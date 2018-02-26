@@ -23,7 +23,7 @@ import sys
 
 {% if cookiecutter.use_apistar == 'y' %}
 # ----Django settings
-import config.settings
+from app import settings
 {% else %}
 
 sys.path.insert(0, os.path.abspath('..'))

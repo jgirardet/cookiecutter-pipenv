@@ -28,6 +28,8 @@ pytest-timeit = "*"
 pytest-django = "*"
 django-reset-migrations = "*"
 django-extensions = "*"
+pytest-env ="*"
+apistar-shell = "*"
 {% endif %}
 
 [packages]
@@ -35,6 +37,6 @@ pbr = ">=3.0"
 {% if cookiecutter.use_apistar == 'y' %}
 apistar = {git = "https://github.com/audiolion/apistar.git", editable=true}
 django = "*"
-psycopg2 = "*"
+psycopg2-binary = "*"
 {% endif %}
 
