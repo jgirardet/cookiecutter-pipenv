@@ -206,3 +206,4 @@ ChangeLog after Fork
 - Makefile : apistar stuff
 - apistar : manage.py
 - fixtures app
+- separated django/apistar settings
