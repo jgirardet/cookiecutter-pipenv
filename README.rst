@@ -212,3 +212,4 @@ ChangeLog after Fork
 - apistar : manage.py
 - fixtures app
 - separated django/apistar settings
+- removed django-extensions for apistar shell

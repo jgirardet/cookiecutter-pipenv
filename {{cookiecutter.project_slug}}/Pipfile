@@ -27,7 +27,6 @@ pytest-timeit = "*"
 {% if cookiecutter.use_apistar == 'y' %}
 pytest-django = "*"
 django-reset-migrations = "*"
-django-extensions = "*"
 pytest-env ="*"
 apistar-shell = "*"
 {% endif %}
