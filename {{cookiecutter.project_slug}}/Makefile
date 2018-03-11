@@ -22,7 +22,7 @@ autopep8:
 	pipenv run autopep8 --in-place --recursive setup.py $(MODULE)
 
 yapf:
-	pipenv run yapf --style .yapf --recursive -i $(MODULE)
+	pipenv run yapf --recursive -i $(MODULE)
 
 checks:
 	pipenv check
