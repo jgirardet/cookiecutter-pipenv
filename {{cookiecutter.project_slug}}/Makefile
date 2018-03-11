@@ -68,7 +68,7 @@ pypi-publish: build
 	pipenv run python setup.py upload -r pypi
 
 update:
-	pipenv update
+	pipenv update -d
 
 githook: checks style requirements.txt
 	
