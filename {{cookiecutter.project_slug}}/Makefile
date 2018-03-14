@@ -42,7 +42,7 @@ test-coverage:
 	pipenv run py.test  --cov $(MODULE) --cov-report term-missing --cov-report html
 
 requirements.txt:
-	{% if cookiecutter.library_or_app == 'libray' %}
+	{% if cookiecutter.library_or_app == 'library' %}
 	# generate requirements.txt from Pipfile
 	# needed until PBR supports `Pipfile`
 	pipenv run pipenv_to_requirements
