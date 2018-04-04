@@ -18,9 +18,6 @@ style: isort autopep8 yapf
 isort:
 	pipenv run isort -y
 
-autopep8:
-	pipenv run autopep8 --in-place --recursive setup.py $(MODULE)
-
 yapf:
 	pipenv run yapf --recursive -i $(MODULE)
 
@@ -36,10 +33,11 @@ shell:
 	pipenv shell
 
 test-unit:
-	pipenv run pytest 
+	pipenv run pytest --cov $(MODULE) --cov-report term-missing --cov-fail-under=100
 
 test-coverage:
 	pipenv run py.test  --cov $(MODULE) --cov-report term-missing --cov-report html
+
 
 requirements.txt:
 	{% if cookiecutter.library_or_app == 'library' %}
@@ -64,8 +62,8 @@ sdist:
 wheels:
 	pipenv run python setup.py bdist_wheel
 
-pypi-publish: build
-	pipenv run python setup.py upload -r pypi
+deploy: build
+	twine upload --repository-url https://upload.pypi.org/legacy/ dist/*
 
 update:
 	pipenv update -d
@@ -103,17 +101,7 @@ clean-test: ## remove test and coverage artifacts
 	rm -fr .tox/
 	rm -f .coverage
 	rm -fr htmlcov/
-
-{% if cookiecutter.use_apistar == 'y' %}
-migrate: migrations
-	pipenv run apistar migrate
-
-migrations:
-	pipenv run apistar makemigrations
-
-run:
-	pipenv run apistar run
-{% endif %}
+	rm -rf .pytest_cache/
 
 # aliases to gracefully handle typos on poor dev's terminal
 check: checks

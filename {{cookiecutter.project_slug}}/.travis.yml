@@ -5,9 +5,7 @@ language: python
 
 python:
   - 3.6
-{% if cookiecutter.use_apistar != 'y' %}
   - 3.5
-{% endif %}
 
 install:
   - pip install -U pip pipenv
@@ -18,7 +16,6 @@ script:
   - make check
   - make dist
   - make doc
-  - make test-unit
   - make test-coverage
 
 after_success:

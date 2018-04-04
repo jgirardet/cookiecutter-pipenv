@@ -26,17 +26,6 @@ if __name__ == '__main__':
     staticdir = project_dir / 'docs/_static/'
     staticdir.mkdir(exist_ok=True)
 
-    if '{{ cookiecutter.use_apistar }}' != 'y':
-        configdir = project_dir / 'config/'
-        shutil.rmtree(
-            str(configdir
-                ))  # must be converted to string for compat whith  python3.5
-        remove_file('app.py')
-        remove_file('manage.py')
-        remove_file('tests/conftest.py')
-        pseudosdir = project_dir / '{{cookiecutter.project_slug}}' / 'pseudos'
-        shutil.rmtree(str(pseudosdir))
-
     if '{{ cookiecutter.create_developer_env_after_scapfolding }}' == 'y':
         print("Setting up a virtual environment")
         subprocess.check_call(

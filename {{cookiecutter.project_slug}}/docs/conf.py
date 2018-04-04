@@ -20,16 +20,8 @@
 import os
 import sys
 
-
-{% if cookiecutter.use_apistar == 'y' %}
-# ----Django settings
-from app import settings
-{% else %}
-
 sys.path.insert(0, os.path.abspath('..'))
 sys.path.insert(0, os.path.abspath('../{{ cookiecutter.project_slug }}'))
-{%- endif %}
-
 
 # -- General configuration ------------------------------------------------
 

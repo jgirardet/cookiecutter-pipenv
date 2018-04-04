@@ -19,7 +19,6 @@ if __name__ == '__main__':
     extra_context = {
         "python_version": sys.version[:3],  # install with travis python V
         "create_developer_env_after_scapfolding": "n",
-        "use_apistar": "y",  #defaut is apistar yes
     }
     if float(sys.version[:3]) < 3.6:
         extra_context[
