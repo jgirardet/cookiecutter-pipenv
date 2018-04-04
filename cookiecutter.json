@@ -6,7 +6,7 @@
 	"project_name": "my_project_name",
 	"project_short_description": "Short Description of My Library",
 	"project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
-	"open_source_license": ["GNU General Public License v3","MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "Not open source"],
+	"open_source_license": ["GNU General Public License v3 or later (GPLv3+)","MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "Not open source"],
 	"github_username": "github_username",
 	"pypi_username": "{{ cookiecutter.github_username }}",
 	"github_repository_name": "{{ cookiecutter.project_slug }}",
