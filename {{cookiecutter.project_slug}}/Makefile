@@ -5,7 +5,7 @@ MODULE:={{ cookiecutter.project_slug }}
 all: dev style checks requirements.txt build dists doc test-unit test-coverage
 
 dev:
-	pipenv install --dev --python {{cookiecutter.python_version}}
+	pipenv install --dev --python {{cookiecutter.python_version}} --skip-lock
 
 install-local:
 	pipenv install --python {{cookiecutter.python_version}}
