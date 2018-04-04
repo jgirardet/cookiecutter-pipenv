@@ -13,7 +13,7 @@ install-local:
 install-system:
 	pipenv install --system
 
-style: isort autopep8 yapf
+style: isort yapf
 
 isort:
 	pipenv run isort -y
