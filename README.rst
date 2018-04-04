@@ -35,13 +35,12 @@ See https://github.com/audreyr/cookiecutter for more information about Cookiecut
 - **Travis-CI**: build, unit test
 - **Automatically deploy successful tagged version** to Pypi
 - **Automatically set Travis CI deployment token** with `travis_pypi_setup.py` script
-- **isort, Yapf, AutoPep8**: code formatting
+- **isort, Yapf**: code formatting
 - **Flake8**: code style
 - **Coverage**: unit test report
 - Use **Pytest** for Unit testing
 - **Sphinx docs**: Documentation ready for generation and publication to **ReadTheDoc**
 - controle package security with **pyup**.
-- Optional : **apistar** configured with djangoORM, with **ready_to_use fixtures**
 
 
 Get Started:
@@ -156,32 +155,12 @@ Clean everything:
   
       make clean
 
-Apistar option:
-  this add:
+Manual Deploy:
+.. code-block:: bash
 
-  - only for python 3.6.
-  - uses audiolion/apistar version, waitiing official bug fix.
-  - config directory for settings, urls, get_env
-  - a sample pseudo app : models, urls, schema, views
-  - fixtures:
-    + session fixture
-    + app fixture
-  - sample test
-  - Add to Makefile:
+    make deploy
 
-    + migrate : does migrations and migrate
-    + run : run apistar
-  - added packages : 
-
-    + apistar, django, psycopg2
-    + pytest-django
-    + pytest-pythonpath
-    + django-reset-migrations: allways usefull
-    + django-extensions : for shell_plus  server_plus 
-    + todo : manage.py
-
-
-
+deployment need twine to be installed
 
 
 Contributing
@@ -192,6 +171,7 @@ You're welcome
 
 ChangeLog after Fork
 ----------------------
+- remove apistar stuff
 - tests out of package directory
 - config folder for django/apistar only
 - travis start at python 3.5
