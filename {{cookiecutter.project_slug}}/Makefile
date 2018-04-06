@@ -27,8 +27,6 @@ checks:
 flake8:
 	pipenv run python setup.py flake8
 
-build: dists
-
 shell:
 	pipenv shell
 
@@ -62,8 +60,12 @@ sdist:
 wheels:
 	pipenv run python setup.py bdist_wheel
 
-deploy: build
-	twine upload --repository-url https://upload.pypi.org/legacy/ dist/*
+deploy: build publish
+
+build: dists
+
+publish:
+	pipenv run twine upload --repository-url https://upload.pypi.org/legacy/ dist/
 
 update:
 	pipenv update -d
