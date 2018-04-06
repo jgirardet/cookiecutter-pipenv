@@ -21,6 +21,7 @@ sphinx = "*"
 sphinx-autobuild = "*"
 pytest-pythonpath = "*"
 pytest-env ="*"
+twine
 
 
 [packages]
