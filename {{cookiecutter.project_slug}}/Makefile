@@ -13,13 +13,13 @@ install-local:
 install-system:
 	pipenv install --system
 
-style: isort yapf
+style: isort black
 
 isort:
 	pipenv run isort -y
 
-yapf:
-	pipenv run yapf --recursive -i $(MODULE)
+black:
+	pipenv run black --recursive -i $(MODULE)
 
 checks:
 	pipenv check
