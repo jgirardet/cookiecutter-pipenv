@@ -20,7 +20,7 @@ sphinx = "*"
 sphinx-autobuild = "*"
 pytest-pythonpath = "*"
 pytest-env ="*"
-twine
+twine = "*"
 
 
 [packages]
