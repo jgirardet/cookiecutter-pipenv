@@ -4,7 +4,7 @@ python:
     - "3.6"
     
 install:
-  - pip install pipenv>=9.0 cookiecutter
+  - pip install pipenv cookiecutter
 
 script:
   - python test-script.py 
