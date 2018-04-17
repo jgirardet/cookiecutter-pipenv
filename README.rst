@@ -171,6 +171,7 @@ You're welcome
 
 ChangeLog after Fork
 ----------------------
+- switch yapf to black
 - remove apistar stuff
 - tests out of package directory
 - config folder for django/apistar only
