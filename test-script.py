@@ -20,10 +20,7 @@ if __name__ == '__main__':
         "python_version": sys.version[:3],  # install with travis python V
         "create_developer_env_after_scapfolding": "n",
     }
-    if float(sys.version[:3]) < 3.6:
-        extra_context[
-            'use_apistar'] = "n"  #do not test apistar under python3.6
-
+    
     cookiecutter(
         cookie_path,
         no_input=True,
