@@ -12,7 +12,7 @@ Thanks to gsemet for his work.
 
 I created a new one because it was becoming to much different from the python-library-cookiecutter.
 
-It's realy for python >3.5. I don't know if previous is ok.
+It's realy for python >3.6.
 
 What's included ?
 ------------------------------
