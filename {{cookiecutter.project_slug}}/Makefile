@@ -19,7 +19,7 @@ isort:
 	pipenv run isort -y
 
 black:
-	pipenv run black --recursive -i $(MODULE)
+	pipenv run black $(MODULE)
 
 checks:
 	pipenv check
