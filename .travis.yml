@@ -6,6 +6,9 @@ python:
 install:
   - pip install pipenv cookiecutter
 
+env:
+  - PIPENV_IGNORE_VIRTUALENVS=1
+
 script:
   - python test-script.py 
   - cd my_project_name
